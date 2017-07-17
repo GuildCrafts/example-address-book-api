@@ -3,21 +3,30 @@
   "version": "0.0.1",
   "description": "Example address book app using PostgreSQL + Node.js/Express",
   "scripts": {
-    "start": "node server.js",
-    "start:dev": "nodemon server.js",
-    "test": "mocha ./test/*_test.js",
+    "start": "node api.js",
+    "start:dev": "nodemon api.js",
     "db:create": "createdb address_book",
     "db:drop": "dropdb address_book",
     "db:schema": "psql address_book < ./database/schema.sql",
     "db:reset": "npm run db:drop && npm run db:create && npm run db:schema",
-    "db:seed": "node ./database/seed.js"
+    "test": "NODE_ENV=test mocha ./test/*_test.js",
+    "test:api": "NODE_ENV=test mocha ./test/api_test.js",
+    "test:queries": "NODE_ENV=test mocha ./test/queries_test.js",
+    "test:db:create": "createdb address_book_test",
+    "test:db:drop": "dropdb address_book_test",
+    "test:db:schema": "psql address_book_test < ./database/schema.sql",
+    "test:db:reset": "npm run test:db:drop && npm run test:db:create && npm run test:db:schema"
   },
   "dependencies": {
+    "body-parser": "^1.17.2",
     "chai": "^4.1.0",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
     "mocha": "^3.4.2",
     "pg-promise": "^6.3.5"
   },
   "devDependencies": {
+    "chai-http": "^3.0.0",
     "nodemon": "^1.11.0"
   }
 }

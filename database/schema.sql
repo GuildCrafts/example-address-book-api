@@ -15,5 +15,6 @@ CREATE TABLE groups (
 CREATE TABLE group_members (
   id SERIAL PRIMARY KEY,
   contact_id INTEGER REFERENCES contacts (id) NOT NULL,
-  group_id INTEGER REFERENCES groups (id) NOT NULL
+  group_id INTEGER REFERENCES groups (id) NOT NULL,
+  UNIQUE (contact_id, group_id)
 );

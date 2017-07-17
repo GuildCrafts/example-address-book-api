@@ -2,6 +2,7 @@
   "name": "example-address-book-app",
   "version": "0.0.1",
   "description": "Example address book app using PostgreSQL + Node.js/Express",
+  "license": "MIT",
   "scripts": {
     "start": "node api.js",
     "start:dev": "nodemon api.js",

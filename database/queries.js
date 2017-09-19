@@ -68,7 +68,7 @@ function groupWithName(name) {
 }
 
 function findOrCreateGroupByName(name) {
-  return db.one(`
+  return db.any(`
     SELECT * FROM groups
     WHERE name = $1;
   `, name).then((records) => {

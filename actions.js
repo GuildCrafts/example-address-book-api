@@ -43,6 +43,7 @@ function createContactWithGroups(contactInfo, groups) {
       })
       .then(() => contactID)
     })
+    .catch(err => console.log(err))
 }
 
 function deleteContactAndTheirMemberships(contactID) {
